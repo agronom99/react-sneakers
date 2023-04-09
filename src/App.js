@@ -1,6 +1,25 @@
 function App() {
   return (
     <div className="wrapper clear">
+      <div className="overlay">
+        <div className="drawer">
+          <h2 className="">Корзина</h2>
+
+          <div className="cartItem d-flex align-center">
+            <div
+              style={{ backgroundImage: "url(/img/sneackers/image_5_2.jpg)" }}
+              className="cartItemImg"
+            ></div>
+
+            <div className="mr-20">
+              <p className="mb-5">Чоловічі Кросівки Nike Air Max 270</p>
+              <b>7 999 грн.</b>
+            </div>
+            <img className="removeBtn" src="/img/btn-remove.svg" alt="Remove" />
+          </div>
+        </div>
+      </div>
+
       <header className="d-flex justify-between align-center p-40">
         <div className="d-flex align-center  ">
           <img
@@ -12,7 +31,7 @@ function App() {
           />
           <div>
             <h3 className="text-uppercase">REACT SNEAKERS</h3>
-            <p className='opacity-1'>Магазин найкращих кроссовок</p>
+            <p className="opacity-5">Інтернет-магазин найкращих кросівок</p>
           </div>
         </div>
         <ul className="d-flex">
@@ -54,18 +73,26 @@ function App() {
         </ul>
       </header>
       <div className="content p-40">
-        <h1 className="mb-40">Усі кросівки</h1>
+        <div className="d-flex align-center justify-between mb-40">
+          <h1>Усі кросівки</h1>
+          <div className="search-block d-flex">
+            <img src="/img/Group search.svg" alt="Search" />
+            <input placeholder="Пошук..." />
+          </div>
+        </div>
 
         <div className="d-flex">
-
           <div className="card">
+            <div className="favorite">
+              <img src="/img/heart.svg" alt="Unliked" />
+            </div>
             <img
               width={133}
               height={112}
               src="/img/sneackers/image 5.jpg"
               alt="sneackers"
             ></img>
-            <h5>Чоловічі Кроссівки Nike Blazer Mid Suede</h5>
+            <h5>Чоловічі кросівки Nike Blazer Mid Suede</h5>
             <div className="d-flex justify-between align-center ">
               <div className="d-flex flex-column ">
                 <span>Ціна:</span>
@@ -83,17 +110,20 @@ function App() {
           </div>
 
           <div className="card">
+            <div className="favorite">
+              <img src="/img/heart.svg" alt="Unliked" />
+            </div>
             <img
               width={133}
               height={112}
-              src="/img/sneackers/image 5 2.jpg"
+              src="/img/sneackers/image_5_2.jpg"
               alt="sneackers"
             ></img>
-            <h5>Чоловічі Кроссівки Nike Blazer Mid Suede</h5>
+            <h5>Чоловічі Кросівки Nike Air Max 270</h5>
             <div className="d-flex justify-between align-center ">
               <div className="d-flex flex-column ">
                 <span>Ціна:</span>
-                <b>4 999 грн.</b>
+                <b>7 999 грн.</b>
               </div>
               <button className="button">
                 <img
@@ -107,13 +137,16 @@ function App() {
           </div>
 
           <div className="card">
+            <div className="favorite">
+              <img src="/img/heart.svg" alt="Unliked" />
+            </div>
             <img
               width={133}
               height={112}
               src="/img/sneackers/image 5 (1).jpg"
               alt="sneackers"
             ></img>
-            <h5>Чоловічі Кроссівки Nike Blazer Mid Suede</h5>
+            <h5>Чоловічі кросівки Nike Blazer Mid Suede</h5>
             <div className="d-flex justify-between align-center ">
               <div className="d-flex flex-column ">
                 <span>Ціна:</span>
@@ -131,13 +164,16 @@ function App() {
           </div>
 
           <div className="card">
+            <div className="favorite">
+              <img src="/img/heart.svg" alt="Unliked" />
+            </div>
             <img
               width={133}
               height={112}
               src="/img/sneackers/image 5 (2).jpg"
               alt="sneackers"
             ></img>
-            <h5>Чоловічі Кроссівки Nike Blazer Mid Suede</h5>
+            <h5>Чоловічі кросівки Nike Blazer Mid Suede</h5>
             <div className="d-flex justify-between align-center ">
               <div className="d-flex flex-column ">
                 <span>Ціна:</span>
