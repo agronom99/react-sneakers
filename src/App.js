@@ -12,7 +12,7 @@ function App() {
           />
           <div>
             <h3 className="text-uppercase">REACT SNEAKERS</h3>
-            <p className='opacity-1'>Магазин найкращих кроссовок</p>
+            <p className='opacity-1'>Магазин найкращих кроссовок!</p>
           </div>
         </div>
         <ul className="d-flex">
