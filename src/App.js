@@ -1,35 +1,35 @@
+/* eslint-disable no-unused-vars */
+import React from "react";
 import Card from "./components/Card";
 import Header from "./components/Header";
 import Drawer from "./components/Drawer";
 
-const arr = [
-  {
-    title: "Чоловічі кросівки Nike Blazer Mid Suede",
-    price: 4999,
-    imageUrl: "/img/sneackers/1.jpg",
-  },
-  {
-    title: "Чоловічі кросівки Nike Air Max 270",
-    price: 7999,
-    imageUrl: "/img/sneackers/2.jpg",
-  },
-  {
-    title: "Чоловічі кросівки Nike Blazer Mid Suede",
-    price: 8599,
-    imageUrl: "/img/sneackers/3.jpg",
-  },
-  {
-    title: "Кросівки Puma X Aka Boku Future Rider",
-    price: 8999,
-    imageUrl: "/img/sneackers/4.jpg",
-  },
-];
-
 function App() {
+  const [items, setItems] = React.useState([]);
+  const [cartItems, setCartItems] = React.useState([]);
+
+  const [cartOpened, setCartOpened] = React.useState(false);
+
+  React.useEffect(() => {
+    fetch("https://6436f7ad8205915d34018d30.mockapi.io/Items")
+      .then((res) => {
+        return res.json();
+      })
+      .then((json) => {
+        setItems(json);
+      });
+  }, []);
+
+  const onAddToCard = (obj) => {
+    setCartItems(prev => [...prev, obj]);
+  };
+
   return (
     <div className="wrapper clear">
-      <Drawer />
-      <Header />
+      {cartOpened && (
+        <Drawer items={cartItems} onClose={() => setCartOpened(false)} />
+      )}
+      <Header onClickCart={() => setCartOpened(true)} />
       <div className="content p-40">
         <div className="d-flex align-center justify-between mb-40">
           <h1>Усі кросівки</h1>
@@ -39,9 +39,15 @@ function App() {
           </div>
         </div>
 
-        <div className="d-flex">
-          {arr.map((obj) => (
-            <Card title={obj.title} price={obj.price} imageUrl={obj.imageUrl} />
+        <div className="d-flex flex-wrap">
+          {items.map((item) => (
+            <Card
+              title={item.title}
+              price={item.price}
+              imageUrl={item.imageUrl}
+              onFavorite={() => console.log("Добавили до закладок")}
+              onPlus={(obj) => onAddToCard(obj)}
+            />
           ))}
         </div>
       </div>
